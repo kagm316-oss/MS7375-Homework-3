@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--
+    Program Name: Pseudocode Documentation - MS7375 Homework 3
+    Author: Kris Patterson  
+    Date Created: 10-24-2025
+    Date last edited: 11-14-2025
+    Description: Pseudocode documentation for Elite Orthopedic Registration System
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudocode - Elite Orthopedic Registration System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Banner -->
+    <table class="banner">
+        <tr>
+            <td class="banner-logo">
+                <img src="logo.jpg" alt="Company Logo" class="logo">
+            </td>
+            <td class="banner-text">
+                <h1>Elite Orthopedic</h1>
+                <p>System Pseudocode Documentation</p>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Main Content -->
+    <div class="pseudocode-container">
+        <h2>Elite Orthopedic Registration System - Pseudocode</h2>
+        
+        <div class="pseudocode-section">
+            <h3>1. Main Program Flow</h3>
+            <pre class="pseudocode">
+PROGRAM EliteOrthopedicRegistration
+BEGIN
+    DISPLAY banner with current date
+    INITIALIZE form validation system
+    SET date ranges for birth date validation
+    SETUP event listeners for all form elements
+    
+    WHILE user is interacting with form DO
+        MONITOR field changes
+        VALIDATE input in real-time
+        DISPLAY error messages if needed
+    END WHILE
+    
+    IF user clicks REVIEW button THEN
+        CALL reviewForm()
+    ELSE IF user clicks SUBMIT button THEN
+        CALL submitForm()
+    ELSE IF user clicks CLEAR button THEN
+        RESET all form fields
+    END IF
+END PROGRAM
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>2. Page Initialization</h3>
+            <pre class="pseudocode">
+FUNCTION initializeSystem()
+BEGIN
+    CALL displayCurrentDate()
+    CALL initializeForm()
+    CALL setDateRanges()
+    CALL setupPainLevelSlider()
+    CALL setupPasswordValidation()
+END FUNCTION
+
+FUNCTION displayCurrentDate()
+BEGIN
+    GET current system date
+    FORMAT date as "Weekday, Month Day, Year"
+    DISPLAY formatted date in banner
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>3. Form Validation Logic</h3>
+            <pre class="pseudocode">
+FUNCTION validateField(fieldElement)
+BEGIN
+    GET field value and trim whitespace
+    SET isValid = TRUE
+    CLEAR previous error messages
+    
+    SWITCH field type
+        CASE "first-name" OR "last-name":
+            IF value length < 1 OR value length > 30 THEN
+                SET isValid = FALSE
+            ELSE IF value contains invalid characters THEN
+                SET isValid = FALSE
+            END IF
+            
+        CASE "email-address":
+            IF value does not match email pattern THEN
+                SET isValid = FALSE
+            END IF
+            
+        CASE "phone-number":
+            IF value does not match "XXX-XXX-XXXX" pattern THEN
+                SET isValid = FALSE
+            END IF
+            
+        CASE "user-id":
+            IF value length < 5 OR value length > 30 THEN
+                SET isValid = FALSE
+            ELSE IF value starts with number THEN
+                SET isValid = FALSE
+            ELSE IF value contains spaces THEN
+                SET isValid = FALSE
+            ELSE
+                CONVERT value to lowercase
+            END IF
+            
+        CASE "password":
+            CALL validatePasswordStrength(value)
+            
+        CASE "date-of-birth":
+            CALL validateDateOfBirth(value)
+            
+    END SWITCH
+    
+    IF isValid = FALSE THEN
+        DISPLAY appropriate error message
+    END IF
+    
+    RETURN isValid
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>4. Password Validation Algorithm</h3>
+            <pre class="pseudocode">
+FUNCTION validatePasswordStrength(password)
+BEGIN
+    SET errors = empty array
+    
+    // Length validation
+    IF password length < 8 OR password length > 30 THEN
+        ADD "Password must be 8-30 characters" to errors
+    END IF
+    
+    // Character requirements
+    IF password does not contain uppercase letter THEN
+        ADD "Must contain uppercase letter" to errors
+    END IF
+    
+    IF password does not contain lowercase letter THEN
+        ADD "Must contain lowercase letter" to errors
+    END IF
+    
+    IF password does not contain digit THEN
+        ADD "Must contain a number" to errors
+    END IF
+    
+    IF password does not contain special character THEN
+        ADD "Must contain special character" to errors
+    END IF
+    
+    IF password contains quotes THEN
+        ADD "Cannot contain quotes" to errors
+    END IF
+    
+    // Security checks
+    GET userID, firstName, lastName values
+    IF password contains userID OR firstName OR lastName THEN
+        ADD "Cannot contain personal information" to errors
+    END IF
+    
+    IF errors array is not empty THEN
+        DISPLAY all error messages
+        RETURN FALSE
+    ELSE
+        RETURN TRUE
+    END IF
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>5. Review System Logic</h3>
+            <pre class="pseudocode">
+FUNCTION reviewForm()
+BEGIN
+    CALL collectFormData()
+    
+    CREATE review display table
+    FOR each form field DO
+        GET field value
+        VALIDATE field value
+        IF field is valid THEN
+            DISPLAY value with "pass" status
+        ELSE
+            DISPLAY value with "ERROR" status
+        END IF
+    END FOR
+    
+    // Special handling for sensitive data
+    MASK password with asterisks
+    FORMAT social security for display
+    
+    SHOW review section
+    SCROLL to review section
+END FUNCTION
+
+FUNCTION collectFormData()
+BEGIN
+    CREATE formData object
+    
+    FOR each input field DO
+        IF field type is checkbox THEN
+            GET all checked values
+        ELSE IF field type is radio THEN
+            GET selected value
+        ELSE
+            GET field value
+        END IF
+        
+        STORE value in formData object
+    END FOR
+    
+    RETURN formData
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>6. Data Submission Process</h3>
+            <pre class="pseudocode">
+FUNCTION submitForm()
+BEGIN
+    CALL validateAllFields()
+    
+    IF all fields are valid THEN
+        CALL validatePasswordMatch()
+        
+        IF passwords match THEN
+            // In production: SEND data to server
+            DISPLAY "Form submitted successfully!"
+            
+            // Security cleanup
+            CLEAR sensitive data from memory
+            LOG submission event
+        ELSE
+            DISPLAY "Password mismatch error"
+        END IF
+    ELSE
+        DISPLAY "Please correct all errors before submitting"
+        HIGHLIGHT invalid fields
+    END IF
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>7. User Interface Interactions</h3>
+            <pre class="pseudocode">
+FUNCTION setupPainLevelSlider()
+BEGIN
+    GET pain slider element
+    GET pain display element
+    
+    ON slider value change DO
+        GET current slider value
+        CONVERT value to descriptive text
+        UPDATE display with formatted text
+    END ON
+END FUNCTION
+
+FUNCTION setupEventListeners()
+BEGIN
+    FOR each form input DO
+        ON input change DO
+            CALL validateField(current input)
+        END ON
+        
+        ON field focus lost DO
+            CALL validateField(current input)
+        END ON
+    END FOR
+    
+    ON review button click DO
+        CALL reviewForm()
+    END ON
+    
+    ON submit button click DO
+        PREVENT default form submission
+        CALL submitForm()
+    END ON
+    
+    ON reset button click DO
+        CLEAR all form data
+        REMOVE all error messages
+        RESET form to initial state
+    END ON
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>8. Data Security Measures</h3>
+            <pre class="pseudocode">
+FUNCTION implementSecurity()
+BEGIN
+    // Input sanitization
+    FOR each user input DO
+        REMOVE dangerous characters
+        ESCAPE special characters
+        VALIDATE against expected format
+    END FOR
+    
+    // Password security
+    MASK password fields in display
+    NEVER log or store passwords in plain text
+    
+    // Personal data protection
+    MASK social security number
+    VALIDATE all personal information formats
+    
+    // Form validation
+    USE client-side AND server-side validation
+    PREVENT injection attacks
+    IMPLEMENT CSRF protection
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="pseudocode-section">
+            <h3>9. Error Handling</h3>
+            <pre class="pseudocode">
+FUNCTION handleErrors(errorType, errorMessage)
+BEGIN
+    SWITCH errorType
+        CASE "validation":
+            DISPLAY inline error message
+            HIGHLIGHT invalid field
+            
+        CASE "system":
+            LOG error details
+            DISPLAY user-friendly message
+            
+        CASE "network":
+            DISPLAY "Connection error, please try again"
+            ENABLE retry mechanism
+            
+        CASE "security":
+            LOG security event
+            DISPLAY generic error message
+            POSSIBLY LOCK form temporarily
+    END SWITCH
+END FUNCTION
+            </pre>
+        </div>
+
+        <div class="navigation-buttons">
+            <button onclick="window.history.back()" class="nav-btn">← Back to Previous Page</button>
+            <a href="Medical_Form.html" class="nav-btn">Return to Form</a>
+            <a href="website_description.html" class="nav-btn">System Description</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <p>Elite Ortho</p>
+        <p>PO BOX 18881, Sugar Land TX 77496</p>
+        <button class="contact-btn">CONTACT US</button>
+        <a href="website_description.html" class="description-btn">ABOUT SYSTEM</a>
+        <a href="pseudocode.html" class="pseudocode-btn">PSEUDOCODE</a>
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,448 @@
+/*
+    Program Name: Style sheet.css
+    Author: Kris Patterson  
+    Date Created: 09-20-2025
+    Date last edited: 09-26-25
+    Version: 1.0
+    Description: Basic User Entry Form
+*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #dad5d5;
+    color: #333;
+}
+
+/* Banner Section */
+.banner {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dad5d5;
+    margin-bottom: 20px;
+}
+
+.banner-logo {
+    text-align: center;
+    width: 30%;
+    background-color: #dad5d5;
+}
+
+.banner-text {
+    padding-left: 20px;
+    background-color: #dad5d5;
+    text-align: right;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.logo {
+    max-width: 150px;
+    background-color: #dad5d5;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 2px solid #666;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+.form-section legend {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #dad5d5;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+
+/* Form Table */
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.form-table td {
+    padding: 8px;
+    vertical-align: middle;
+}
+
+label {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-right: 8px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 95%;
+    padding: 6px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Range input */
+input[type="range"] {
+    width: 200px;
+}
+
+/* Checkboxes and Radios */
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 4px;
+    margin-left: 10px;
+}
+
+/* Button Container */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Buttons */
+button {
+    margin: 10px 5px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.reset-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #5a6268;
+}
+
+.review-btn {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.review-btn:hover {
+    background-color: #e0a800;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.contact-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.contact-btn:hover {
+    background-color: #218838;
+}
+
+.description-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    display: inline-block;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.description-btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.pseudocode-btn {
+    background-color: #6f42c1;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    display: inline-block;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.pseudocode-btn:hover {
+    background-color: #5a2d91;
+    color: white;
+}
+
+.close-review-btn {
+    background-color: #dc3545;
+    color: white;
+    margin-top: 15px;
+}
+
+.close-review-btn:hover {
+    background-color: #c82333;
+}
+
+/* Footer */
+#footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 2px solid #333;
+    background-color: #dad5d5;
+}
+
+#footer a {
+    margin: 0 8px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Error Messages */
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 2px;
+    display: block;
+}
+
+input.error, select.error, textarea.error {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+/* Pain Level Slider Display */
+#pain-display {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* Review Section */
+.review-section {
+    display: none;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 3px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-section h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.review-section h3 {
+    color: #28a745;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.review-table td:first-child {
+    background-color: #e9ecef;
+    font-weight: bold;
+    width: 25%;
+}
+
+.review-table td:nth-child(2) {
+    width: 50%;
+}
+
+.review-table td:last-child {
+    width: 25%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.review-table td:last-child:contains("pass") {
+    color: #28a745;
+}
+
+.review-table td:last-child:contains("ERROR") {
+    color: #dc3545;
+}
+
+.review-buttons {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+}
+
+/* Required field indicator */
+label:has(+ input[required]):after,
+label:has(+ select[required]):after {
+    content: " *";
+    color: #dc3545;
+}
+
+/* Fieldset styling improvements */
+fieldset {
+    position: relative;
+}
+
+fieldset legend {
+    position: relative;
+    top: -10px;
+    left: 10px;
+}
+
+/* Description Page Styles */
+.description-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.description-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.description-section h3 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.description-section ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.description-section li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.navigation-buttons {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    border-top: 2px solid #ddd;
+}
+
+.nav-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: inline-block;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Pseudocode Page Styles */
+.pseudocode-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pseudocode-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+    border-left: 4px solid #6f42c1;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.pseudocode-section h3 {
+    color: #6f42c1;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+}
+
+.pseudocode {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 20px;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #495057;
+    overflow-x: auto;
+    white-space: pre;
+    margin: 15px 0;
+    border-left: 4px solid #6f42c1;
+}
+
+.pseudocode-section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #495057;
+}
