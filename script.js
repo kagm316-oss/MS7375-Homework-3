@@ -65,22 +65,41 @@ function setDateRanges() {
 }
 
 /**
- * Setup salary slider with dynamic display
+ * Setup pain level slider with dynamic display
  */
 function setupSalarySlider() {
-    const salarySlider = document.getElementById('desired-salary');
-    const salaryDisplay = document.getElementById('salary-display');
+    const painSlider = document.getElementById('pain-level');
+    const painDisplay = document.getElementById('pain-display');
     
-    if (salarySlider && salaryDisplay) {
-        salarySlider.addEventListener('input', function() {
+    if (painSlider && painDisplay) {
+        painSlider.addEventListener('input', function() {
             const value = parseInt(this.value);
-            salaryDisplay.textContent = '$' + value.toLocaleString();
+            painDisplay.textContent = formatPainLevel(value);
         });
         
         // Initialize display
-        const initialValue = parseInt(salarySlider.value);
-        salaryDisplay.textContent = '$' + initialValue.toLocaleString();
+        const initialValue = parseInt(painSlider.value);
+        painDisplay.textContent = formatPainLevel(initialValue);
     }
+}
+
+/**
+ * Format pain level value for display
+ */
+function formatPainLevel(value) {
+    const painDescriptions = {
+        1: '1 (No Pain)',
+        2: '2 (Minimal)',
+        3: '3 (Mild)',
+        4: '4 (Moderate)',
+        5: '5 (Moderate)',
+        6: '6 (Moderate-Severe)',
+        7: '7 (Severe)', 
+        8: '8 (Very Severe)',
+        9: '9 (Extremely Severe)',
+        10: '10 (Unbearable)'
+    };
+    return painDescriptions[value] || value.toString();
 }
 
 /**
