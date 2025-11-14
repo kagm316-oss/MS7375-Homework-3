@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--
+    Program Name: Medical Form - Homework 3
+    Author: Kris Patterson  
+    Date Created: 11-14-2025
+    Version: 3.0
+    Description: Advanced User Registration Form with Real-Time JavaScript Validation
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MS7375 Homework 3 - Elite Orthopedic Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Banner -->
+    <table class="banner">
+        <tr>
+            <td class="banner-logo">
+                <img src="logo.jpg" alt="Company Logo" class="logo">
+            </td>
+            <td class="banner-text">
+                <h1>Elite Orthopedic</h1>
+                <p>Today is: <span id="current-date"></span></p>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Patient Registration Form -->
+    <form id="patient-form" onsubmit="return false;">
+        <h2>Patient Registration Form</h2>
+        
+        <!-- Personal, Contact & Address Information -->
+        <fieldset class="form-section">
+            <legend>Personal, Contact & Address Information</legend>
+            <table class="form-table">
+                <tr>
+                    <td><label for="first-name">First Name *:</label></td>
+                    <td>
+                        <input type="text" id="first-name" name="first-name" required 
+                               maxlength="30" minlength="1"
+                               pattern="[A-Za-z\'\-\s]+"
+                               title="First name: 1-30 characters, letters, apostrophes, and dashes only"
+                               placeholder="Enter first name">
+                        <span class="error-placeholder" id="error-first-name"></span>
+                    </td>
+                    <td><label for="middle-initial">Middle Initial:</label></td>
+                    <td>
+                        <input type="text" id="middle-initial" name="middle-initial" 
+                               maxlength="1" pattern="[A-Za-z]?"
+                               title="Optional: Single letter only"
+                               placeholder="M">
+                        <span class="error-placeholder" id="error-middle-initial"></span>
+                    </td>
+                    <td><label for="last-name">Last Name *:</label></td>
+                    <td>
+                        <input type="text" id="last-name" name="last-name" required 
+                               maxlength="30" minlength="1"
+                               pattern="[A-Za-z\'\-\s]+"
+                               title="Last name: 1-30 characters, letters, apostrophes, and dashes only"
+                               placeholder="Enter last name">
+                        <span class="error-placeholder" id="error-last-name"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="date-of-birth">Date of Birth *:</label></td>
+                    <td>
+                        <input type="date" id="date-of-birth" name="date-of-birth" required
+                               title="Your birth date - cannot be in the future or more than 120 years ago">
+                        <span class="error-placeholder" id="error-date-of-birth"></span>
+                    </td>
+                    <td><label for="social-security">Social Security *:</label></td>
+                    <td>
+                        <input type="password" id="social-security" name="social-security" required
+                               maxlength="11" pattern="\d{3}-\d{2}-\d{4}"
+                               title="Social Security: XXX-XX-XXXX format (will be hidden for security)"
+                               placeholder="XXX-XX-XXXX">
+                        <span class="error-placeholder" id="error-social-security"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="email-address">Email Address *:</label></td>
+                    <td>
+                        <input type="email" id="email-address" name="email-address" required
+                               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                               title="Email format: name@domain.tld"
+                               placeholder="example@domain.com">
+                        <span class="error-placeholder" id="error-email-address"></span>
+                    </td>
+                    <td><label for="phone-number">Phone Number *:</label></td>
+                    <td>
+                        <input type="tel" id="phone-number" name="phone-number" required
+                               pattern="\d{3}-\d{3}-\d{4}"
+                               title="Phone format: 000-000-0000"
+                               placeholder="555-123-4567">
+                        <span class="error-placeholder" id="error-phone-number"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="address-line-1">Address Line 1 *:</label></td>
+                    <td>
+                        <input type="text" id="address-line-1" name="address-line-1" required
+                               maxlength="30" minlength="2"
+                               title="Street address: 2-30 characters required"
+                               placeholder="123 Main St">
+                        <span class="error-placeholder" id="error-address-line-1"></span>
+                    </td>
+                    <td><label for="address-line-2">Address Line 2:</label></td>
+                    <td>
+                        <input type="text" id="address-line-2" name="address-line-2" 
+                               maxlength="30" minlength="2"
+                               title="Optional: Apartment, suite, etc. If entered, must be 2-30 characters"
+                               placeholder="Apt 4B">
+                        <span class="error-placeholder" id="error-address-line-2"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="city">City *:</label></td>
+                    <td>
+                        <input type="text" id="city" name="city" required 
+                               maxlength="30" minlength="2"
+                               title="City name: 2-30 characters required"
+                               placeholder="Sugar Land">
+                        <span class="error-placeholder" id="error-city"></span>
+                    </td>
+                    <td><label for="state">State *:</label></td>
+                    <td>
+                        <select id="state" name="state" required 
+                                title="Please select your state">
+                            <option value="">Select a state</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                        <span class="error-placeholder" id="error-state"></span>
+                    </td>
+                    <td><label for="zip-code">Zip Code *:</label></td>
+                    <td>
+                        <input type="text" id="zip-code" name="zip-code" required
+                               maxlength="5" pattern="\d{5}"
+                               title="Zip code: 5 digits only"
+                               placeholder="77496">
+                        <span class="error-placeholder" id="error-zip-code"></span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        
+        <!-- Medical History and Preferences -->
+        <fieldset class="form-section">
+            <legend>Medical History and Preferences</legend>
+            <table class="form-table">
+                <tr>
+                    <td><label for="symptoms">Describe your current symptoms:</label></td>
+                    <td colspan="5">
+                        <textarea id="symptoms" name="symptoms" rows="3" cols="50"
+                                  title="Optional: Describe any current symptoms or concerns"
+                                  placeholder="Describe your symptoms..."></textarea>
+                        <span class="error-placeholder" id="error-symptoms"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Medical History - Check all that apply:</td>
+                    <td colspan="5">
+                        <label><input type="checkbox" id="chicken-pox" name="medical-history" value="chicken-pox" 
+                                      title="Check if you have had Chicken Pox"> Chicken Pox</label>
+                        <label><input type="checkbox" id="measles" name="medical-history" value="measles"
+                                      title="Check if you have had Measles"> Measles</label>
+                        <label><input type="checkbox" id="covid-19" name="medical-history" value="covid-19"
+                                      title="Check if you have had Covid-19"> Covid-19</label>
+                        <label><input type="checkbox" id="small-pox" name="medical-history" value="small-pox"
+                                      title="Check if you have had Small Pox"> Small Pox</label>
+                        <label><input type="checkbox" id="tetanus" name="medical-history" value="tetanus"
+                                      title="Check if you have had Tetanus"> Tetanus</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender *:</td>
+                    <td colspan="5">
+                        <label><input type="radio" id="male" name="gender" value="male" required
+                                      title="Select your gender"> Male</label>
+                        <label><input type="radio" id="female" name="gender" value="female" required
+                                      title="Select your gender"> Female</label>
+                        <span class="error-placeholder" id="error-gender"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Are you currently sick? *:</td>
+                    <td colspan="5">
+                        <label><input type="radio" id="sick-yes" name="sick" value="yes" required
+                                      title="Are you currently experiencing illness?"> Yes</label>
+                        <label><input type="radio" id="sick-no" name="sick" value="no" required
+                                      title="Are you currently experiencing illness?"> No</label>
+                        <span class="error-placeholder" id="error-sick"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Do you have insurance? *:</td>
+                    <td colspan="5">
+                        <label><input type="radio" id="insurance-yes" name="insurance" value="yes" required
+                                      title="Do you currently have medical insurance?"> Yes</label>
+                        <label><input type="radio" id="insurance-no" name="insurance" value="no" required
+                                      title="Do you currently have medical insurance?"> No</label>
+                        <span class="error-placeholder" id="error-insurance"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Have you been vaccinated? *:</td>
+                    <td colspan="5">
+                        <label><input type="radio" id="vaccinated-yes" name="vaccinated" value="yes" required
+                                      title="Are you up to date with vaccinations?"> Yes</label>
+                        <label><input type="radio" id="vaccinated-no" name="vaccinated" value="no" required
+                                      title="Are you up to date with vaccinations?"> No</label>
+                        <label><input type="radio" id="vaccinated-partial" name="vaccinated" value="partial" required
+                                      title="Are you up to date with vaccinations?"> Partially</label>
+                        <span class="error-placeholder" id="error-vaccinated"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="desired-salary">Desired Salary Range:</label></td>
+                    <td colspan="3">
+                        <input type="range" id="desired-salary" name="desired-salary" 
+                               min="20000" max="200000" value="60000" step="5000"
+                               title="Select your desired salary from $20,000 to $200,000">
+                    </td>
+                    <td><span id="salary-display">$60,000</span></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        
+        <!-- Account Creation Section -->
+        <fieldset class="form-section">
+            <legend>Account Creation</legend>
+            <table class="form-table">
+                <tr>
+                    <td><label for="user-id">Desired User ID *:</label></td>
+                    <td>
+                        <input type="text" id="user-id" name="user-id" required
+                               maxlength="20" minlength="5"
+                               pattern="[A-Za-z][A-Za-z0-9_-]*"
+                               title="User ID: 5-20 characters, must start with letter, letters/numbers/underscore/dash only, no spaces"
+                               placeholder="username123">
+                        <span class="error-placeholder" id="error-user-id"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">Password *:</label></td>
+                    <td>
+                        <input type="password" id="password" name="password" required
+                               maxlength="30" minlength="8"
+                               title="Password: 8+ characters, must contain uppercase, lowercase, and number. Cannot equal user ID."
+                               placeholder="Enter password">
+                        <span class="error-placeholder" id="error-password"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="re-enter-password">Re-enter Password *:</label></td>
+                    <td>
+                        <input type="password" id="re-enter-password" name="re-enter-password" required
+                               maxlength="30" minlength="8"
+                               title="Please re-enter your password exactly as above to confirm."
+                               placeholder="Re-enter password">
+                        <span class="error-placeholder" id="error-re-enter-password"></span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <div class="button-container">
+            <button type="reset" class="reset-btn" onclick="handleReset()">CLEAR AND START OVER</button>
+            <button type="button" id="validate-btn" class="validate-btn" onclick="validateForm()">VALIDATE FORM</button>
+            <button type="button" id="submit-btn" class="submit-btn" style="display:none;" onclick="submitForm()">SUBMIT</button>
+        </div>
+        
+        <div id="validation-summary" class="validation-summary" style="display:none;">
+            <h3>Validation Summary</h3>
+            <p id="validation-message"></p>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <div id="footer">
+        <p>Elite Ortho</p>
+        <p>PO BOX 18881, Sugar Land TX 77496</p>
+        <button class="contact-btn">CONTACT US</button>
+        <a href="website_description.html" class="description-btn">ABOUT SYSTEM</a>
+        <a href="pseudocode.html" class="pseudocode-btn">PSEUDOCODE</a>
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -99,6 +99,21 @@ input[type="range"] {
     width: 200px;
 }
 
+/* Salary/Slider display */
+#salary-display {
+    font-weight: bold;
+    color: #28a745;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+#pain-display {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
 /* Checkboxes and Radios */
 input[type="checkbox"],
 input[type="radio"] {
@@ -145,13 +160,22 @@ button {
     background-color: #e0a800;
 }
 
+.validate-btn {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.validate-btn:hover {
+    background-color: #e0a800;
+}
+
 .submit-btn {
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
 }
 
 .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #218838;
 }
 
 .contact-btn {
@@ -224,7 +248,21 @@ button {
     color: #007bff;
 }
 
-/* Error Messages */
+/* Error Messages - Fixed height to prevent page jumping */
+.error-placeholder {
+    color: #dc3545;
+    font-size: 12px;
+    display: block;
+    min-height: 18px;
+    margin-top: 3px;
+    visibility: hidden;
+}
+
+.error-placeholder.error-active {
+    visibility: visible;
+    font-weight: bold;
+}
+
 .error-message {
     color: #dc3545;
     font-size: 12px;
@@ -232,9 +270,39 @@ button {
     display: block;
 }
 
-input.error, select.error, textarea.error {
-    border-color: #dc3545;
+input.error, select.error, textarea.error, input.input-error, select.input-error, textarea.input-error {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5 !important;
+    border-width: 2px !important;
+}
+
+/* Validation Summary */
+.validation-summary {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.validation-summary.success {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+}
+
+.validation-summary.error {
     background-color: #f8d7da;
+    border: 2px solid #dc3545;
+    color: #721c24;
+}
+
+#validation-message {
+    margin: 0;
+    padding: 10px;
+    font-size: 18px;
 }
 
 /* Pain Level Slider Display */
@@ -244,6 +312,22 @@ input.error, select.error, textarea.error {
     font-size: 16px;
     margin-left: 10px;
 }
+
+/* Form Table - Ensure consistent spacing */
+.form-table td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+.form-table input[type="text"],
+.form-table input[type="email"],
+.form-table input[type="password"],
+.form-table input[type="date"],
+.form-table input[type="tel"],
+.form-table select {
+    margin-bottom: 0;
+}
+
 
 /* Review Section */
 .review-section {

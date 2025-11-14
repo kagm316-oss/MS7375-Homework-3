@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+    Program Name: Thank You Page - Homework 3
+    Author: Kris Patterson  
+    Date Created: 11-14-2025
+    Version: 3.0
+    Description: Form Submission Confirmation Page
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Confirmation - Elite Orthopedic</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border: 3px solid #28a745;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .thank-you-container h1 {
+            color: #28a745;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 4;
+            stroke: #28a745;
+            stroke-miterlimit: 10;
+            margin: 20px auto;
+            box-shadow: inset 0px 0px 0px #28a745;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+        }
+        
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #28a745;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        @keyframes scale {
+            0%, 100% {
+                transform: none;
+            }
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+        
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #28a745;
+            }
+        }
+        
+        .return-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .return-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .info-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-left: 4px solid #007bff;
+            text-align: left;
+        }
+        
+        .info-box h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        
+        .info-box ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Banner -->
+    <table class="banner">
+        <tr>
+            <td class="banner-logo">
+                <img src="logo.jpg" alt="Company Logo" class="logo">
+            </td>
+            <td class="banner-text">
+                <h1>Elite Orthopedic</h1>
+                <p>Thank You for Registering</p>
+            </td>
+        </tr>
+    </table>
+
+    <div class="thank-you-container">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        
+        <h1>Thank You for Your Submission!</h1>
+        
+        <p>We have successfully received your patient registration information.</p>
+        
+        <p>We will be contacting you shortly to confirm your appointment and provide further instructions.</p>
+        
+        <div class="info-box">
+            <h3>What Happens Next?</h3>
+            <ul>
+                <li>You will receive a confirmation email within 24 hours</li>
+                <li>Our team will review your information and medical history</li>
+                <li>We will contact you to schedule your first appointment</li>
+                <li>Please have your insurance card ready for your visit</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h3>Need Immediate Assistance?</h3>
+            <ul>
+                <li><strong>Phone:</strong> (281) 555-0123</li>
+                <li><strong>Email:</strong> info@eliteortho.com</li>
+                <li><strong>Address:</strong> PO BOX 18881, Sugar Land TX 77496</li>
+            </ul>
+        </div>
+        
+        <a href="homework3.html" class="return-btn">Return to Registration Form</a>
+        <a href="index.html" class="return-btn">Go to Home Page</a>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <p>Elite Ortho</p>
+        <p>PO BOX 18881, Sugar Land TX 77496</p>
+        <button class="contact-btn">CONTACT US</button>
+        <a href="website_description.html" class="description-btn">ABOUT SYSTEM</a>
+        <a href="pseudocode.html" class="pseudocode-btn">PSEUDOCODE</a>
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a>
+    </div>
+</body>
+</html>
